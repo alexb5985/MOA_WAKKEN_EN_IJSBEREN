@@ -8,27 +8,29 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="75dp">
+        android:layout_height="wrap_content">
 
         <Button
             android:text="Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button3"
+            android:id="@+id/btnPersonal"
+            android:layout_weight="1"
+            android:freezesText="true"
+            tools:text="@string/icon_heart" />
+
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSettings"
             android:layout_weight="1" />
 
         <Button
             android:text="Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button2"
-            android:layout_weight="1" />
-
-        <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button"
+            android:id="@+id/btnHelp"
             android:layout_weight="1" />
     </LinearLayout>
 </FrameLayout>
