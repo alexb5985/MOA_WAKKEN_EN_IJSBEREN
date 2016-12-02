@@ -16,8 +16,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnUser"
             android:layout_weight="1"
-            android:freezesText="true"
-            android:drawableLeft="@drawable/UserImage" />
+            android:freezesText="true" />
 
         <Button
             android:text="Button"
