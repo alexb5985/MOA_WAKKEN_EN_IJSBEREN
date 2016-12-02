@@ -1,8 +1,6 @@
 package com.example.gebruiker.moa_wakken_en_ijsberen;
 
-import android.content.Context;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,7 +17,7 @@ public class FragmentMenu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_fragment_menu, container, false);
+        View v = inflater.inflate(R.layout.fragment_menu, container, false);
         Typeface font = Typeface.createFromAsset( getContext().getAssets(), "fontawesome-webfont.ttf" );
         Button button = (Button) v.findViewById(R.id.btnPersonal);
         button.setTypeface(font);
