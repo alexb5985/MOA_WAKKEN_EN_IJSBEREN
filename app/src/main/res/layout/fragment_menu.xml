@@ -17,7 +17,7 @@
             android:id="@+id/btnPersonal"
             android:layout_weight="1"
             android:freezesText="true"
-            tools:text="@string/icon_heart" />
+            android:drawableRight="@drawable/UserImage" />
 
         <Button
             android:text="Button"
