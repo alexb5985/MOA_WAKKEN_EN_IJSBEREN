@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnGame"
+            android:background="@drawable/button_resource_selector"
             android:layout_weight="1" />
 
         <Button
@@ -22,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnUser"
+            android:background="@drawable/button_resource_selector"
             android:layout_weight="1"
             android:freezesText="true" />
 
@@ -30,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnSettings"
+            android:background="@drawable/button_resource_selector"
             android:layout_weight="1" />
 
         <Button
@@ -37,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnHelp"
+            android:background="@drawable/button_resource_selector"
             android:layout_weight="1" />
     </LinearLayout>
 </FrameLayout>
