@@ -12,7 +12,7 @@ public class Dobbelstenen {
 
     public ArrayList<Integer> stenen;
     int aantalstenen;
-
+//construct
     public Dobbelstenen(int aantalstenen) {
 
         stenen = new ArrayList<Integer>();
