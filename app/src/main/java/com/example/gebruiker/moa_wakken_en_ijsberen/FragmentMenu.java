@@ -1,5 +1,6 @@
 package com.example.gebruiker.moa_wakken_en_ijsberen;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,19 +10,32 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 public class FragmentMenu extends Fragment {
-    public FragmentMenu() {
-
-    }
-
+    Button btnUser, btnSettings, btnHelp;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_menu, container, false);
-        Typeface font = Typeface.createFromAsset( getContext().getAssets(), "fontawesome-webfont.ttf" );
-        Button button = (Button) v.findViewById(R.id.btnPersonal);
-        button.setTypeface(font);
-        // Inflate the layout for this fragment
+        btnUser = (Button) v.findViewById(R.id.btnUser);
+        btnSettings = (Button) v.findViewById(R.id.btnSettings);
+        btnHelp = (Button) v.findViewById(R.id.btnHelp);
+
+        btnUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        btnHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         return v;
     }
 }

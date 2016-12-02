@@ -14,10 +14,10 @@
             android:text="Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnPersonal"
+            android:id="@+id/btnUser"
             android:layout_weight="1"
             android:freezesText="true"
-            android:drawableRight="@drawable/UserImage" />
+            android:drawableLeft="@drawable/UserImage" />
 
         <Button
             android:text="Button"
