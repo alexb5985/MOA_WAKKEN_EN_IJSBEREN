@@ -10,19 +10,30 @@ import java.util.Random;
 
 public class Dobbelstenen {
 
-    public ArrayList<Integer> stenen;
-    int aantalstenen;
+    public ArrayList<Integer> Stenen;
+    int Aantalstenen;
+    Random r;
 //construct
     public Dobbelstenen(int aantalstenen) {
 
-        stenen = new ArrayList<Integer>();
-        Random r = new Random();
+        Aantalstenen = aantalstenen;
+        Stenen = new ArrayList<Integer>();
+        r = new Random();
         for(int i=1; i<aantalstenen +1; i++){
 
             int steen = r.nextInt(7 - 1) ;
-            stenen.add(steen);
+            Stenen.add(steen);
         }
 
+    }
+
+    public void Rolldice(){
+      Stenen.clear();
+        for(int i=1; i< Aantalstenen +1; i++){
+
+            int steen = r.nextInt(7 - 1) ;
+            Stenen.add(steen);
+        }
     }
 
 }
