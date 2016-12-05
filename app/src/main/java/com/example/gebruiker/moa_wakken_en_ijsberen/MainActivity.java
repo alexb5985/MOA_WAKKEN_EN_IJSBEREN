@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity{
         ft = fm.beginTransaction();
         ft.add(R.id.FrameFragment, new FragmentMenu());
         ft.commit();
+
+        Dobbelstenen s = new Dobbelstenen(5);
+        s.Rolldice();
+
     }
 
 }
