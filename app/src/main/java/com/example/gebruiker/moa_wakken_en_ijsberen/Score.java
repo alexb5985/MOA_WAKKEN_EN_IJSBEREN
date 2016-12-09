@@ -5,9 +5,12 @@ package com.example.gebruiker.moa_wakken_en_ijsberen;
  */
 
 public class Score {
+    private int id;
     private String name;
     private int goodGuesses;
     private int wrongGuesses;
+
+
 
     public int getWrongGuesses() {
         return wrongGuesses;
@@ -37,6 +40,11 @@ public class Score {
         this.name = name;
         this.goodGuesses = goodGuesses;
         this.wrongGuesses = wrongGuesses;
+    }
+
+
+    public Score(){
+
     }
 
 }

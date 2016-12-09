@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.hardware.camera2.params.Face;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Gebruiker on 5-12-2016.
  */
@@ -28,6 +31,7 @@ class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE_SCORE = "CREATE TABLE score (ID INTEGER PRIMARY KEY, Name VARCHAR (255), Goed INTEGER, Fout INTEGER);";
         db.execSQL(CREATE_TABLE_SCORE);
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -39,86 +43,64 @@ class DBHandler extends SQLiteOpenHelper {
 
 
 
-  /*  public void addFavorites(Favorites fav) {
+   public void addScore(Score score) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("Hyperlink", fav.getHyperlink());
-        values.put("Omschrijving", fav.getOmschrijving());
-        values.put("Catogorie", fav.getCatogorie());
-        values.put("DatumAdded", fav.getDatumtoegevoegd());
+        values.put("Name", score.getName());
+        values.put("Goed", score.getGoodGuesses());
+        values.put("Fout", score.getWrongGuesses());
 
-        db.insert("fav", null, values);
+        db.insert("score", null, values);
         db.close(); // Closing database connection
     }
-
-    public Favorites getFavorites(int id) {
+/*
+    public Score getScore(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("fav", new String[]{"ID",
-                        "Hyperlink", "Omschrijving","Catogorie","DatumAdded" }, "ID" + "=?",
-                new String[]{String.valueOf(id)}, null, null, null, null);
+        Cursor cursor = db.query("score", new String[]{"ID",
+                        "Name", "Goed","Fout"}, "ID" + "=?",
+                new String[]{String.valueOf(id)}, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
-        Favorites fav = new Favorites(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+        Score score = new Score(cursor.getString(0), Integer.parseInt( cursor.getString(1)), Integer.parseInt((cursor.getString(2))));
 
-        return fav;
-    }
+        return score;
+    } */
 
-    public List<Favorites> getAllFavorites() {
-        List<Favorites> favList = new ArrayList<Favorites>();
+    public List<Score> getAllScores() {
+        List<Score> scoreList = new ArrayList<Score>();
 
-        //   for(int i = 0; i < 10; i++){
-        //      Favorites fav = new Favorites(i, "http://www.google.nl", "Omschrijving", "Nieuws", "date");
-        //       favList.add(fav);
-        //    }
-
-        String selectQuery = "SELECT * FROM fav";
+        String selectQuery = "SELECT * FROM score";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-
         if (cursor.moveToFirst()) {
             do {
-                Favorites fav = new Favorites();
-                fav.setId(Integer.parseInt(cursor.getString(0)));
-                fav.setHyperlink(cursor.getString(1));
-                fav.setOmschrijving(cursor.getString(2));
-                fav.setCatogorie(cursor.getString(3));
-                fav.setDatumtoegevoegd(cursor.getString(4));
+                Score score = new Score();
+                score.setName(cursor.getString(0));
+                score.setGoodGuesses(Integer.parseInt(cursor.getString(1)));
+                score.setWrongGuesses(Integer.parseInt(cursor.getString(2)));
 
-                favList.add(fav);
+                scoreList.add(score);
             } while (cursor.moveToNext());
         }
-        return favList;
+        return scoreList;
     }
-
-    public int getFavoritesCount() {
-        String countQuery = "SELECT * FROM " + "fav";
+/*
+    public int getScoreCount() {
+        String countQuery = "SELECT * FROM " + "score";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         cursor.close();
 
-// return count
+            // return count
         return cursor.getCount();
-    }
+    } */
 
-    public int updateFavorite(Favorites fav) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("ID", fav.getId());
-        values.put("Hyperlink", fav.getHyperlink());
-        values.put("Omschrijving", fav.getOmschrijving());
-        values.put("Catogorie", fav.getCatogorie());
-        values.put("DatumAdded", fav.getDatumtoegevoegd());
 
-// updating row
-        return db.update("fav", values, "ID" + "= ?",
-                new String[]{String.valueOf(fav.getId())});
-    }
-
+/*
 
     public void deleteFavorite(Favorites fav) {
         SQLiteDatabase db = this.getWritableDatabase();
