@@ -11,7 +11,7 @@ import android.hardware.camera2.params.Face;
  * Created by Gebruiker on 5-12-2016.
  */
 
-public class DBHandler extends SQLiteOpenHelper {
+class DBHandler extends SQLiteOpenHelper {
 
     // Database Version
     private static final int DATABASE_VERSION = 1;
