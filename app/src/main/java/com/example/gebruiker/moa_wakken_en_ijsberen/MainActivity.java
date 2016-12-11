@@ -1,10 +1,16 @@
 package com.example.gebruiker.moa_wakken_en_ijsberen;
 
 import android.net.Uri;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TableLayout;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -14,11 +20,9 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //TEST TEST
-        fm = getSupportFragmentManager();
-        ft = fm.beginTransaction();
-        ft.add(R.id.FrameFragment, new FragmentMenu());
-        ft.commit();
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        FragmentMenu adapter = new FragmentMenu(getSupportFragmentManager());
+        adapter.add
     }
-
 }
