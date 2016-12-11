@@ -20,9 +20,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        FragmentMenu adapter = new FragmentMenu(getSupportFragmentManager());
-        adapter.add
+        Dobbelstenen s = new Dobbelstenen(5);
+        s.Rolldice();
+
     }
 }
