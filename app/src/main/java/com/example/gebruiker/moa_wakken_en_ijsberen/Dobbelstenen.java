@@ -17,11 +17,12 @@ public class Dobbelstenen {
     public Dobbelstenen(int aantalstenen) {
 
         Aantalstenen = aantalstenen;
-        Stenen = new ArrayList<Integer>();
+        Stenen = new ArrayList<>();
         r = new Random();
+        int min = 1;
+        int max = 6;
         for(int i=1; i<aantalstenen +1; i++){
-
-            int steen = r.nextInt(7 - 1) ;
+            int steen = r.nextInt(max - min + 1) + min;
             Stenen.add(steen);
         }
 
