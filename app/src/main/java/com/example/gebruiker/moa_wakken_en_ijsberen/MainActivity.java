@@ -16,16 +16,16 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new CustomPager(getSupportFragmentManager(),MainActivity.this));
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
-        Score sc = new Score("Naam", 1, 1);
-        DBHandler db = new DBHandler(this);
-
-        db.addScore(sc);
-
-        List<Score> list = db.getAllScores();
-
-
-        Dobbelstenen s = new Dobbelstenen(5);
-        s.Rolldice();
+//
+//        Score sc = new Score("Naam", 1, 1);
+//        DBHandler db = new DBHandler(this);
+//
+//        db.addScore(sc);
+//
+//        List<Score> list = db.getAllScores();
+//
+//
+//        Dobbelstenen s = new Dobbelstenen(5);
+//        s.Rolldice();
     }
 }

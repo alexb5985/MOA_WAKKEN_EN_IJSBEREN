@@ -9,31 +9,20 @@ import java.util.Random;
  */
 
 public class Dobbelstenen {
+    public int[] stenen;
+    public int Aantalstenen;
+    private Random r;
 
-    public ArrayList<Integer> Stenen;
-    int Aantalstenen;
-    Random r;
-//construct
     public Dobbelstenen(int aantalstenen) {
-
         Aantalstenen = aantalstenen;
-        Stenen = new ArrayList<>();
-        r = new Random();
-        int min = 1;
-        int max = 6;
-        for(int i=1; i<aantalstenen +1; i++){
-            int steen = r.nextInt(max - min + 1) + min;
-            Stenen.add(steen);
-        }
-
     }
 
     public void Rolldice(){
-      Stenen.clear();
-        for(int i=1; i< Aantalstenen +1; i++){
-
-            int steen = r.nextInt(7 - 1) ;
-            Stenen.add(steen);
+        r = new Random();
+        stenen = new int[Aantalstenen +1];
+        while(Aantalstenen > 0){
+            stenen[Aantalstenen -1] = r.nextInt(6) + 1;
+            Aantalstenen--;
         }
     }
 

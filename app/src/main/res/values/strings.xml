@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">MOA_WAKKEN_EN_IJSBEREN</string>
+    <string name="AantalWakken">Aantal wakken</string>
+    <string name="AantalIjsberen">Aantal ijsberen</string>
+    <string name="AantalPinguins">Aantal pinguins</string>
+    <string name="Start">Start</string>
+    <string name="Controleren">Controleren</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="icon_heart">&#xf004;</string>
 </resources>
