@@ -81,9 +81,9 @@ class DBHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Score score = new Score();
-                score.setName(cursor.getString(0));
-                score.setGoodGuesses(Integer.parseInt(cursor.getString(1)));
-                score.setWrongGuesses(Integer.parseInt(cursor.getString(2)));
+                score.setName(cursor.getString(1));
+                score.setGoodGuesses(cursor.getInt(2));
+                score.setWrongGuesses(cursor.getInt(3));
 
                 scoreList.add(score);
             } while (cursor.moveToNext());
