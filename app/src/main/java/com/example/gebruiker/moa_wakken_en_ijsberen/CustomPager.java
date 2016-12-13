@@ -15,7 +15,10 @@ import android.text.style.ImageSpan;
  */
 
 public class CustomPager extends FragmentPagerAdapter {
+    //integer voor hoeveelheid tabs
     final int PAGE_COUNT = 4;
+
+    //Array met images voor tabs
     private int[] imageResId = {
             R.drawable.dice,
             R.drawable.userimage,
@@ -34,11 +37,14 @@ public class CustomPager extends FragmentPagerAdapter {
         return PAGE_COUNT;
     }
 
+    //Generate fragments voor viewpager
     @Override
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
                 FragmentGame tab1 = new FragmentGame();
+
+
                 return tab1;
             case 1:
                 FragmentUser tab2 = new FragmentUser();
@@ -54,6 +60,7 @@ public class CustomPager extends FragmentPagerAdapter {
         }
     }
 
+    //Constructor voor images en eventueel titel van tabbladen
     @Override
     public CharSequence getPageTitle(int position) {
         Drawable image = ContextCompat.getDrawable(context, imageResId[position]);

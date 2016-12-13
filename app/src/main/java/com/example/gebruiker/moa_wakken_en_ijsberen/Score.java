@@ -10,8 +10,6 @@ public class Score {
     private int goodGuesses;
     private int wrongGuesses;
 
-
-
     public int getWrongGuesses() {
         return wrongGuesses;
     }

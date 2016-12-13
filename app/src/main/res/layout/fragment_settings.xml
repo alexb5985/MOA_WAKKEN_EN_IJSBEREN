@@ -18,23 +18,37 @@
         android:layout_alignRight="@+id/btnSaveSettings"
         android:layout_alignEnd="@+id/btnSaveSettings"
         android:layout_alignLeft="@+id/btnSaveSettings"
-        android:layout_alignStart="@+id/btnSaveSettings" />
+        android:layout_alignStart="@+id/btnSaveSettings"
+        android:layout_marginLeft="10dp" />
+
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/skbSeconds"
+        android:layout_alignLeft="@+id/rgYesNo"
+        android:layout_alignStart="@+id/rgYesNo"
+        android:id="@+id/skbDices"
+        android:layout_alignRight="@+id/skbSeconds"
+        android:layout_alignEnd="@+id/skbSeconds"
+        android:layout_marginTop="20dp" />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="3"
         android:orientation="horizontal"
-        android:layout_below="@+id/skbSeconds"
+        android:layout_below="@+id/skbDices"
         android:layout_alignRight="@+id/tvTime"
         android:layout_alignEnd="@+id/tvTime"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_alignLeft="@+id/skbSeconds"
         android:layout_alignStart="@+id/skbSeconds"
         android:id="@+id/rgYesNo">
 
         <RadioButton
             android:layout_width="0dp"
+            android:textSize="18sp"
             android:textColor="#000"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -45,6 +59,7 @@
 
         <RadioButton
             android:layout_width="0dp"
+            android:textSize="18sp"
             android:textColor="#000"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -53,31 +68,8 @@
     </RadioGroup>
 
     <TextView
-        android:text="@string/Pinguins"
-        android:textColor="#000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/skbSeconds"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_marginTop="19dp" />
-
-    <TextView
-        android:text="@string/Tijd"
-        android:textColor="#000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
         android:text="0 Seconden"
+        android:textSize="18sp"
         android:textColor="#000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,7 +77,7 @@
         android:layout_alignTop="@+id/skbSeconds"
         android:layout_toRightOf="@+id/skbSeconds"
         android:layout_toEndOf="@+id/skbSeconds"
-        android:layout_marginLeft="15dp" />
+        android:layout_marginLeft="20dp" />
 
     <TextView
         android:text="@string/Instellingen"
@@ -110,5 +102,53 @@
         android:id="@+id/btnSaveSettings"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/Dobbelstenen"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView12"
+        android:layout_above="@+id/rgYesNo"
+        android:layout_toLeftOf="@+id/btnSaveSettings"
+        android:layout_toStartOf="@+id/btnSaveSettings"
+        android:layout_alignTop="@+id/skbDices" />
+
+    <TextView
+        android:text="@string/Tijd"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_marginTop="105dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/textView12"
+        android:layout_alignStart="@+id/textView12" />
+
+    <TextView
+        android:text="@string/Pinguins"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:layout_alignTop="@+id/rgYesNo"
+        android:layout_alignLeft="@+id/textView12"
+        android:layout_alignStart="@+id/textView12"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:text="0"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/skbDices"
+        android:layout_alignLeft="@+id/tvTime"
+        android:layout_alignStart="@+id/tvTime"
+        android:id="@+id/tvDices" />
+
 
 </RelativeLayout>

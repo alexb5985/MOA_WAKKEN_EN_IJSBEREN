@@ -11,5 +11,6 @@
     <string name="Nee">Nee</string>
     <string name="Instellingen">Instellingen</string>
     <string name="Opslaan">Opslaan</string>
-    <string name="Seconden">seconden</string>
+    <string name="Seconden">sec.</string>
+    <string name="Dobbelstenen">Dobbelstenen</string>
 </resources>
