@@ -1,14 +1,114 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.gebruiker.moa_wakken_en_ijsberen.FragmentSettings">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Settings"  />
 
-</FrameLayout>
+    <SeekBar
+        android:layout_width="120dp"
+        android:textColor="#000"
+        android:layout_height="wrap_content"
+        android:id="@+id/skbSeconds"
+        style="@style/Widget.AppCompat.SeekBar"
+        android:max="0"
+        android:progress="0"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignRight="@+id/btnSaveSettings"
+        android:layout_alignEnd="@+id/btnSaveSettings"
+        android:layout_alignLeft="@+id/btnSaveSettings"
+        android:layout_alignStart="@+id/btnSaveSettings" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_below="@+id/skbSeconds"
+        android:layout_alignRight="@+id/tvTime"
+        android:layout_alignEnd="@+id/tvTime"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@+id/skbSeconds"
+        android:layout_alignStart="@+id/skbSeconds"
+        android:id="@+id/rgYesNo">
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:textColor="#000"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/Ja"
+            android:layout_marginLeft="1dp"
+            android:id="@+id/rbYes"
+            android:checked="true"/>
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:textColor="#000"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/Nee"
+            android:id="@+id/rbNo" />
+    </RadioGroup>
+
+    <TextView
+        android:text="@string/Pinguins"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:layout_below="@+id/skbSeconds"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginTop="19dp" />
+
+    <TextView
+        android:text="@string/Tijd"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="0 Seconden"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTime"
+        android:layout_alignTop="@+id/skbSeconds"
+        android:layout_toRightOf="@+id/skbSeconds"
+        android:layout_toEndOf="@+id/skbSeconds"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:text="@string/Instellingen"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/skbSeconds"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="31dp"
+        android:id="@+id/textView11"
+        android:textSize="24sp" />
+
+    <Button
+        android:text="@string/Opslaan"
+        android:background="@drawable/button_resource_selector"
+        android:textColor="#fff"
+        android:width="150dp"
+        android:textAllCaps="false"
+        android:layout_marginBottom="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSaveSettings"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

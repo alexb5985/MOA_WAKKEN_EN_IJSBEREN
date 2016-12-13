@@ -5,5 +5,11 @@
     <string name="AantalPinguins">Aantal pinguins</string>
     <string name="Start">Start</string>
     <string name="Controleren">Controleren</string>
-
+    <string name="Tijd">Begin tijd</string>
+    <string name="Pinguins">Pinguins</string>
+    <string name="Ja">Ja</string>
+    <string name="Nee">Nee</string>
+    <string name="Instellingen">Instellingen</string>
+    <string name="Opslaan">Opslaan</string>
+    <string name="Seconden">seconden</string>
 </resources>

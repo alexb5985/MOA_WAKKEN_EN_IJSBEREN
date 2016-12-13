@@ -6,6 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.SeekBar;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -14,16 +19,41 @@ import android.view.ViewGroup;
 public class FragmentSettings extends Fragment {
 
 
-    public FragmentSettings() {
-        // Required empty public constructor
-    }
 
-
+    RadioButton rbPinguins;
+    SeekBar skbTime;
+    TextView tvTime;
+    int seconds = 10;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+                             final Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
+        rbPinguins = (RadioButton) view.findViewById(R.id.rbYes);
+        skbTime = (SeekBar) view.findViewById(R.id.skbSeconds);
+        tvTime = (TextView) view.findViewById(R.id.tvTime);
+        tvTime.setText(String.format("%1s %2s", seconds, getString(R.string.Seconden)));
+
+        //Zet maximale waarde voor seekbar (60 seconden)
+        skbTime.setMax(60 -10);
+        skbTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                //laat gekozen tijd zijn in textview achter de seekbar
+                tvTime.setText(String.format("%1s %2s", (seconds = i + 10), getString(R.string.Seconden)));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        return view;
     }
 
 }
