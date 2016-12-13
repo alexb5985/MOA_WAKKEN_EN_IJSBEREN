@@ -198,6 +198,7 @@ public class FragmentGame extends Fragment {
     //Haalt settings op zodra deze veranderd zijn, herstart vervolgs de game
     public void UpdateGame(int seconds, int dices, boolean penguins){
         timer.cancel();
+        ClearTextboxes();
         this.seconds = seconds;
         this.dices = dices;
         this.boolPenguins = penguins;
