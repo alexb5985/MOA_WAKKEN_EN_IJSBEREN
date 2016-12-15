@@ -9,6 +9,27 @@ public class Score {
     private String name;
     private int goodGuesses;
     private int wrongGuesses;
+    private int timeTaken;
+    private int numberDice;
+
+    public int getNumberDice() {
+        return numberDice;
+    }
+
+    public void setNumberDice(int numberDice) {
+        this.numberDice = numberDice;
+    }
+
+
+    public int getTimeTaken() {
+        return timeTaken;
+    }
+
+    public void setTimeTaken(int timeTaken) {
+        this.timeTaken = timeTaken;
+    }
+
+
 
     public int getWrongGuesses() {
         return wrongGuesses;
@@ -38,6 +59,13 @@ public class Score {
         this.name = name;
         this.goodGuesses = goodGuesses;
         this.wrongGuesses = wrongGuesses;
+    }
+
+    public Score(String name, int goodGuesses, int wrongGuesses, int timeTaken) {
+        this.name = name;
+        this.goodGuesses = goodGuesses;
+        this.wrongGuesses = wrongGuesses;
+        this.timeTaken = timeTaken;
     }
 
 

@@ -22,8 +22,6 @@ class DBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "wakkenenijsberen";
     // Contacts table name
 
-
-
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -46,6 +44,12 @@ class DBHandler extends SQLiteOpenHelper {
    public void addScore(Score score) {
         SQLiteDatabase db = this.getWritableDatabase();
 
+
+       //TODO
+       // - Timetaken staat nu in score (tijd die je er over gedaan hebt om de score te halen)
+       // - Aantal dobbelstenen waarmee je hebt gespeeld
+       // - Datum moet ook toegevoegt?
+       //TODO
         ContentValues values = new ContentValues();
         values.put("Name", score.getName());
         values.put("Goed", score.getGoodGuesses());

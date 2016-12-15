@@ -174,6 +174,8 @@ public class FragmentGame extends Fragment {
 
         //Voegt score toe aan database, en voegt extra dobbelsteen toe als alles goed is
         if (score.getWrongGuesses() == 0 && dices < 8) {
+            score.setTimeTaken(seconds - secondsTemp);
+            score.setNumberDice(dices);
             dices = dices + 1;
             DBHandler handler = new DBHandler(getContext());
             handler.addScore(score);

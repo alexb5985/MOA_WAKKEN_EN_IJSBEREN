@@ -24,7 +24,7 @@ public class FragmentSettings extends Fragment {
     SeekBar skbTime, skbDices;
     TextView tvTime, tvDices;
     Button btnSave;
-    int seconds = 10, dices = 1;
+    int seconds = 10, dices = 3;
     SharedPreferences preferences;
 
     //Callback voor fragment, geeft seconden en aantal dobbelstenen aan main
@@ -112,7 +112,7 @@ public class FragmentSettings extends Fragment {
 
         //Haalt sharedpreffs op
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        skbDices.setProgress(preferences.getInt("Dice", 2) -1); //-1 want begint bij 0
+        skbDices.setProgress(preferences.getInt("Dice", 3) -1); //-1 want begint bij 0
         skbTime.setProgress(preferences.getInt("Seconds", 0) - 10); // -10 want 0 op seekbar  = 10 seconden
         rbYes.setChecked(preferences.getBoolean("Penguins", true));
         rbNo.setChecked(!preferences.getBoolean("Penguins", false));
