@@ -18,12 +18,27 @@ public class Dobbelstenen {
     }
 
     public void Rolldice(){
+        //Vult dice[]
         r = new Random();
-        stenen = new int[Aantalstenen +1];
-        while(Aantalstenen > 0){
-            stenen[Aantalstenen -1] = r.nextInt(6) + 1;
-            Aantalstenen--;
+        int AantalTemp = Aantalstenen;
+        stenen = new int[AantalTemp +1];
+        while(AantalTemp > 0){
+            stenen[AantalTemp -1] = r.nextInt(6) + 1;
+            AantalTemp--;
         }
+        checkDice();
+    }
+    //Controleert of er niet alleen even getallen zin
+    private void checkDice(){
+        int evenNumbers = 0;
+        for(int i = 0; i < stenen.length -1; i ++){
+            if((stenen[i] % 2) == 0)
+                evenNumbers++;
+        }
+        //Als er alleen even getallen zijn gegooit, rolt die opnieuw
+        //Hierdoor heb je altijd minstens 1 wak etc.
+        if(evenNumbers == Aantalstenen)
+            Rolldice();
     }
 
 }

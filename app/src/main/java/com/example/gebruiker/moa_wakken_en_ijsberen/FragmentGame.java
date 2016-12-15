@@ -180,10 +180,14 @@ public class FragmentGame extends Fragment {
     //Laat vervolgens zien in textbox of goed of fout is
     public void addUserScore(int game, EditText input, Score score){
         int value = tryParseEditText(input);
-        if(game == 0){
-            input.setText(String.valueOf(0));
+        if(game == value){
             input.setTextColor(Color.GREEN);
             score.setGoodGuesses(score.getGoodGuesses() + 1);
+        }
+        else
+        {
+            input.setTextColor(Color.RED);
+            score.setWrongGuesses(score.getWrongGuesses() + 1);
         }
     }
 
