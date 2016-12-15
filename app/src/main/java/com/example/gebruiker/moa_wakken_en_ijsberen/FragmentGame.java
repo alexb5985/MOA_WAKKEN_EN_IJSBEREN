@@ -168,7 +168,7 @@ public class FragmentGame extends Fragment {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         score.setName(preferences.getString("Name", ""));
 
-        //Voegt score toe aan database, en doet voegt extra dobbelsteen toe
+        //Voegt score toe aan database, en voegt extra dobbelsteen toe als alles goed is
         if (score.getWrongGuesses() == 0 && dices < 8) {
             dices = dices + 1;
             DBHandler handler = new DBHandler(getContext());
@@ -177,7 +177,7 @@ public class FragmentGame extends Fragment {
     }
 
     //Methode om userscore te controleren
-    //Laat vervolgens zien in textbox of goed of fout is
+    //Laat vervolgens zien in edittext/textview of antwoord goed of fout is
     public void addUserScore(int game, EditText input, Score score){
         int value = tryParseEditText(input);
         if(game == value){

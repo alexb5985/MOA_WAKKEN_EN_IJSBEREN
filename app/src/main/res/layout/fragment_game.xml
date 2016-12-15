@@ -212,7 +212,7 @@
         android:paddingBottom="15dp" />
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvHoleRes"
@@ -222,7 +222,7 @@
         android:layout_toEndOf="@+id/edPolar" />
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvPolarRes"
@@ -232,7 +232,7 @@
         android:layout_toEndOf="@+id/edPolar" />
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvPenguinRes"
