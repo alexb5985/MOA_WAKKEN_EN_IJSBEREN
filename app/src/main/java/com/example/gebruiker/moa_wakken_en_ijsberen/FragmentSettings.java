@@ -58,10 +58,9 @@ public class FragmentSettings extends Fragment {
         tvTime = (TextView) view.findViewById(R.id.tvTime);
         tvDices = (TextView) view.findViewById(R.id.tvDices);
         btnSave = (Button) view.findViewById(R.id.btnSaveSettings);
-        tvTime.setText(String.format("%1s %2s", seconds, getString(R.string.Seconden)));
-        tvDices.setText(String.valueOf(dices));
 
         //Zet maximale waarde voor seconden seekbar (60 seconden)
+
         skbTime.setMax(60 -10);
         skbTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -110,13 +109,16 @@ public class FragmentSettings extends Fragment {
                 mCallback.setSettings(seconds, dices, rbYes.isChecked());
             }
         });
+
+        //Haalt sharedpreffs op
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        skbDices.setProgress(preferences.getInt("Dice", 2));
-        skbTime.setProgress(preferences.getInt("Seconds", 10));
+        skbDices.setProgress(preferences.getInt("Dice", 2) -1);
+        skbTime.setProgress(preferences.getInt("Seconds", 0) - 10);
         rbYes.setChecked(preferences.getBoolean("Penguins", true));
         rbNo.setChecked(!preferences.getBoolean("Penguins", false));
-        RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.rgYesNo);
-        // TODO settings opslaan in preffs
+        tvTime.setText(String.format("%1s %2s", seconds, getString(R.string.Seconden)));
+        tvDices.setText(String.valueOf(dices));
+
         return view;
     }
 

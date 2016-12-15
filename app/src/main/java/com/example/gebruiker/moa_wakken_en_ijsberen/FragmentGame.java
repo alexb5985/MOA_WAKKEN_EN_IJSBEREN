@@ -32,6 +32,7 @@ public class FragmentGame extends Fragment {
     EditText edPolar, edHole, edPenguin;
     Button btnCheck;
     CountDownTimer timer;
+    SharedPreferences preferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,6 +48,10 @@ public class FragmentGame extends Fragment {
         edHole = (EditText) view.findViewById(R.id.edHole);
         edPenguin = (EditText) view.findViewById(R.id.edPenguin);
         tvTimer.setText(String.valueOf(seconds));
+        preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        dices = preferences.getInt("Dice", 3);
+        seconds = preferences.getInt("Seconds", 10);
+        boolPenguins = preferences.getBoolean("Penguins", true);
         NewGameClick();
         return view;
     }
@@ -149,10 +154,9 @@ public class FragmentGame extends Fragment {
             //Checken op wakken (oneven getallen)
             int roll = dice.stenen[i];
             if((roll % 2) != 0){ //oneven getal
-                //polar = polar + roll;
                 hole = hole + 1; // Wak optellen
                 polar = polar + (roll - 1); // Ijsberen optellen - het wak
-                penguins = penguins + (7 - roll);
+                penguins = penguins + (7 - roll); //Penguins optellen
             }
         }
         //Zet de correcte antwoorden achter de invoer van de gebruiker
