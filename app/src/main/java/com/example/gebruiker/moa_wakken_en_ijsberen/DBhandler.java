@@ -27,7 +27,7 @@ class DBHandler extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE_SCORE = "CREATE TABLE score (ID INTEGER PRIMARY KEY, Name VARCHAR (255), Goed INTEGER, Fout INTEGER);";
+        String CREATE_TABLE_SCORE = "CREATE TABLE score (ID INTEGER PRIMARY KEY, Name VARCHAR (255), Goed INTEGER, Fout INTEGER, Timetaken INTEGER, Aantaldices INTEGER);";
         db.execSQL(CREATE_TABLE_SCORE);
 
     }
@@ -52,6 +52,8 @@ class DBHandler extends SQLiteOpenHelper {
         values.put("Name", score.getName());
         values.put("Goed", score.getGoodGuesses());
         values.put("Fout", score.getWrongGuesses());
+       values.put("Timetaken", score.getTimeTaken());
+       values.put("Aantaldices", score.getNumberDice());
 
         db.insert("score", null, values);
         db.close(); // Closing database connection
@@ -84,6 +86,8 @@ class DBHandler extends SQLiteOpenHelper {
                 score.setName(cursor.getString(1));
                 score.setGoodGuesses(cursor.getInt(2));
                 score.setWrongGuesses(cursor.getInt(3));
+                score.setTimeTaken(cursor.getInt(4));
+                score.setNumberDice(cursor.getInt(5));
 
                 scoreList.add(score);
             } while (cursor.moveToNext());
