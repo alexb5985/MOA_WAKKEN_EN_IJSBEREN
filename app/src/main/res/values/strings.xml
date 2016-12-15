@@ -13,4 +13,11 @@
     <string name="Opslaan">Opslaan</string>
     <string name="Seconden">sec.</string>
     <string name="Dobbelstenen">Dobbelstenen</string>
+    <string name="Accept">Accepteren</string>
+    <string name="Annuleren">Annuleren</string>
+    <string name="Naam">Voer uw naam in</string>
+    <string name="Welkom">Welkom</string>
+    <string name="naamError">Er is geen naam ingevuld</string>
+    <string name="invoerError">Vul eerst gegevens in!</string>
+    <string name="tijdError">Uw tijd is om!</string>
 </resources>

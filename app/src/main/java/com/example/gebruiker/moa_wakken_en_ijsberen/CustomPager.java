@@ -43,8 +43,6 @@ public class CustomPager extends FragmentPagerAdapter {
         switch (position) {
             case 0:
                 FragmentGame tab1 = new FragmentGame();
-
-
                 return tab1;
             case 1:
                 FragmentUser tab2 = new FragmentUser();

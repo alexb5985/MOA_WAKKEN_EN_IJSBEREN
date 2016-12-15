@@ -211,4 +211,34 @@
         android:textStyle="normal|bold"
         android:paddingBottom="15dp" />
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvHoleRes"
+        android:layout_alignBaseline="@+id/edHole"
+        android:layout_alignBottom="@+id/edHole"
+        android:layout_toRightOf="@+id/edPolar"
+        android:layout_toEndOf="@+id/edPolar" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvPolarRes"
+        android:layout_alignBaseline="@+id/edPolar"
+        android:layout_alignBottom="@+id/edPolar"
+        android:layout_toRightOf="@+id/edPolar"
+        android:layout_toEndOf="@+id/edPolar" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvPenguinRes"
+        android:layout_alignBaseline="@+id/edPenguin"
+        android:layout_alignBottom="@+id/edPenguin"
+        android:layout_toRightOf="@+id/edPenguin"
+        android:layout_toEndOf="@+id/edPenguin" />
+
 </RelativeLayout>

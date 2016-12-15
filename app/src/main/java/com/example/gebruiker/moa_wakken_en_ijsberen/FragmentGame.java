@@ -1,15 +1,17 @@
 package com.example.gebruiker.moa_wakken_en_ijsberen;
 
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.res.ResourcesCompat;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,7 +28,7 @@ public class FragmentGame extends Fragment {
     int seconds = 10, dices = 2, secondsTemp;
     Boolean boolPenguins = true;
     Dobbelstenen dice;
-    TextView tvTimer, tvPinguins;
+    TextView tvTimer, tvPinguins, tvHoleRes, tvPolarRes, tvPenguinRes;
     EditText edPolar, edHole, edPenguin;
     Button btnCheck;
     CountDownTimer timer;
@@ -37,6 +39,9 @@ public class FragmentGame extends Fragment {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
         tvTimer = (TextView) view.findViewById(R.id.tvTimer);
         tvPinguins = (TextView) view.findViewById(R.id.tvPenguins);
+        tvPolarRes = (TextView) view.findViewById(R.id.tvPolarRes);
+        tvHoleRes = (TextView) view.findViewById(R.id.tvHoleRes);
+        tvPenguinRes = (TextView) view.findViewById(R.id.tvPenguinRes);
         btnCheck = (Button) view.findViewById(R.id.btnCheck);
         edPolar = (EditText) view.findViewById(R.id.edPolar);
         edHole = (EditText) view.findViewById(R.id.edHole);
@@ -46,14 +51,17 @@ public class FragmentGame extends Fragment {
         return view;
     }
 
+
     public void NewGameClick(){
         //Kijkt of penguins aan staat en enabled/disabled vervolgens textboxes
         if(boolPenguins){
             tvPinguins.setVisibility(View.VISIBLE);
+            tvPenguinRes.setVisibility(View.VISIBLE);
             edPenguin.setVisibility(View.VISIBLE);
         }
         else
         {
+            tvPenguinRes.setVisibility(View.INVISIBLE);
             tvPinguins.setVisibility(View.INVISIBLE);
             edPenguin.setVisibility(View.INVISIBLE);
         }
@@ -65,7 +73,7 @@ public class FragmentGame extends Fragment {
             @Override
             public void onClick(View view) {
                 //Maakt textboxes leeg
-                ClearTextboxes();
+                ClearText();
                 //Zodra er geklikt word, krijgt de button een nieuwe listener voor controle van score
                 CheckScore_Click();
                 //maakt array aan met ingestelde dobbelstenen en vult vervolgens imageviews
@@ -87,7 +95,13 @@ public class FragmentGame extends Fragment {
             public void onClick(View view) {
                 btnCheck.setOnClickListener(null);
                 timer.cancel();
-                GetScores(); // Haalt score op
+
+                //Haalt score op als er iets is ingevuld
+                if(EmptyTextCheck())
+                    GetScores();
+                else
+                    Toast.makeText(getContext(), R.string.invoerError, Toast.LENGTH_SHORT).show();
+
                 NewGameClick(); // TODO Vervangen met getscores()
             }
         });
@@ -107,10 +121,9 @@ public class FragmentGame extends Fragment {
             @Override
             public void onFinish() {
                 secondsTemp--;
-                GetScores();
                 NewGameClick();
                 tvTimer.setText(String.valueOf(seconds));
-                Toast.makeText(getContext(), "FINISHED TOAST TEST", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.tijdError, Toast.LENGTH_SHORT).show();
             }
         }.start();
     }
@@ -125,21 +138,6 @@ public class FragmentGame extends Fragment {
         }
     }
 
-    public void ClearTextboxes(){
-        //Loopt door de Base layout heen en maakt textboxes leeg;
-        View root = getView();
-        if(root != null){
-            //Reset relative / edittexts
-            RelativeLayout rel = (RelativeLayout) root.findViewById(R.id.GameLayout);
-            for (int i = 0; i < rel.getChildCount(); i++) {
-                View v = rel.getChildAt(i);
-                if (v instanceof EditText) {
-                    ((EditText) v).setText(null);
-                }
-            }
-        }
-    }
-
     //Berekening voor het spel zelf
     public void GetScores(){
         Score score = new Score();
@@ -150,39 +148,42 @@ public class FragmentGame extends Fragment {
         for(int i = 0; i < dice.stenen.length -1; i ++) {
             //Checken op wakken (oneven getallen)
             int roll = dice.stenen[i];
-            if((roll % 2) == 0){ //even getal
-                polar = polar + roll;
-            }
-            else //oneven getal
-            {
+            if((roll % 2) != 0){ //oneven getal
+                //polar = polar + roll;
                 hole = hole + 1; // Wak optellen
                 polar = polar + (roll - 1); // Ijsberen optellen - het wak
-                penguins = penguins + roll;
+                penguins = penguins + (7 - roll);
             }
         }
+        //Zet de correcte antwoorden achter de invoer van de gebruiker
+        tvPenguinRes.setText(" (" + penguins + ")");
+        tvHoleRes.setText(" (" + hole + ")");
+        tvPolarRes.setText(" (" + polar + ")");
+        //Controle van gebruiker invoer, voegt goede en foute antwoorden toe aan scoreclass
+        addUserScore(hole, edHole, score);
+        addUserScore(polar, edPolar, score);
+        if (boolPenguins)
+            addUserScore(penguins, edPenguin, score);
+        //Voegt username van sharedpreff toe aan score class
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        score.setName(preferences.getString("Name", ""));
 
-        //Controle van gebruiker invoer
-        checkUserInput(hole, edHole);
-        checkUserInput(polar, edPolar);
-        if(boolPenguins)
-            checkUserInput(penguins, edPenguin);
+        //Voegt score toe aan database, en doet voegt extra dobbelsteen toe
+        if (score.getWrongGuesses() == 0 && dices < 8) {
+            dices = dices + 1;
+            DBHandler handler = new DBHandler(getContext());
+            handler.addScore(score);
+        }
     }
 
     //Methode om userscore te controleren
     //Laat vervolgens zien in textbox of goed of fout is
-    public void checkUserInput(int game, EditText input){
+    public void addUserScore(int game, EditText input, Score score){
         int value = tryParseEditText(input);
-
         if(game == 0){
-            input.setText(" (" + game + ")");
+            input.setText(String.valueOf(0));
             input.setTextColor(Color.GREEN);
-        }
-        else if(game > 0 && game == value){
-            input.setTextColor(Color.GREEN);
-        }
-        else{
-            input.setText(input.getText() +  " (" + game + ")");
-            input.setTextColor(Color.RED);
+            score.setGoodGuesses(score.getGoodGuesses() + 1);
         }
     }
 
@@ -197,12 +198,50 @@ public class FragmentGame extends Fragment {
 
     //Haalt settings op zodra deze veranderd zijn, herstart vervolgs de game
     public void UpdateGame(int seconds, int dices, boolean penguins){
-        timer.cancel();
-        ClearTextboxes();
+        if(timer != null)
+            timer.cancel();
+        ClearText();
         this.seconds = seconds;
         this.dices = dices;
         this.boolPenguins = penguins;
         NewGameClick();
     }
 
+    public void ClearText(){
+        //Loopt door de Base layout heen en maakt textboxes leeg;
+        View root = getView();
+        if(root != null){
+            RelativeLayout rel = (RelativeLayout) root.findViewById(R.id.GameLayout);
+            for (int i = 0; i < rel.getChildCount(); i++) {
+                View v = rel.getChildAt(i);
+                if (v instanceof EditText) {
+                    ((EditText) v).setText(null);
+                    ((EditText) v).setTextColor(Color.BLACK);
+                }
+            }
+            tvPenguinRes.setText(null);
+            tvPolarRes.setText(null);
+            tvHoleRes.setText(null);
+        }
+    }
+
+    //Controle op lege edittexts
+    public boolean EmptyTextCheck(){
+        View root = getView();
+        if(root != null) { // ongeldige view, return false
+            RelativeLayout rel = (RelativeLayout) root.findViewById(R.id.GameLayout);
+            for (int i = 0; i < rel.getChildCount(); i++) {
+                View v = rel.getChildAt(i);
+                if (v instanceof EditText) {
+                    if(v.getVisibility() == View.VISIBLE){
+                        if(TextUtils.isEmpty(((EditText) v).getText()))
+                            return false; // lege textbox, return false
+                    }
+                }
+            }
+        }
+        else
+            return false;
+        return true;
+    }
 }

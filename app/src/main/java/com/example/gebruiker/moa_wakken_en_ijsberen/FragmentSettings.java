@@ -2,13 +2,16 @@ package com.example.gebruiker.moa_wakken_en_ijsberen;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -17,11 +20,12 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class FragmentSettings extends Fragment {
-    RadioButton rbPinguins;
+    RadioButton rbYes, rbNo;
     SeekBar skbTime, skbDices;
     TextView tvTime, tvDices;
     Button btnSave;
     int seconds = 10, dices = 1;
+    SharedPreferences preferences;
 
     //Callback voor fragment, geeft seconden en aantal dobbelstenen aan main
     setSettingsListener mCallback;
@@ -47,7 +51,8 @@ public class FragmentSettings extends Fragment {
                              final Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
-        rbPinguins = (RadioButton) view.findViewById(R.id.rbYes);
+        rbYes = (RadioButton) view.findViewById(R.id.rbYes);
+        rbNo = (RadioButton) view.findViewById(R.id.rbNo);
         skbTime = (SeekBar) view.findViewById(R.id.skbSeconds);
         skbDices = (SeekBar) view.findViewById(R.id.skbDices);
         tvTime = (TextView) view.findViewById(R.id.tvTime);
@@ -101,11 +106,26 @@ public class FragmentSettings extends Fragment {
                 //haalt mainactivity context op, en voert methode uit om tab te wisselen
                // MainActivity main = (MainActivity) getContext();
                 //main.selectPage(0);
-                mCallback.setSettings(seconds, dices, rbPinguins.isChecked());
+                savePreferences();
+                mCallback.setSettings(seconds, dices, rbYes.isChecked());
             }
         });
-
+        preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        skbDices.setProgress(preferences.getInt("Dice", 2));
+        skbTime.setProgress(preferences.getInt("Seconds", 10));
+        rbYes.setChecked(preferences.getBoolean("Penguins", true));
+        rbNo.setChecked(!preferences.getBoolean("Penguins", false));
+        RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.rgYesNo);
+        // TODO settings opslaan in preffs
         return view;
     }
 
+    public void savePreferences(){
+        preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("Dice", dices);
+        editor.putInt("Seconds", seconds);
+        editor.putBoolean("Penguins", rbYes.isChecked());
+        editor.apply();
+    }
 }
