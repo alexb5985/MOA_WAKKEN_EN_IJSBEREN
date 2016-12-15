@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MOA_HOLES_AND_POLARBEARS</string>
+    <string name="AantalWakken">Holes</string>
+    <string name="AantalIjsberen">Polar Bears</string>
+    <string name="AantalPinguins">Penguins</string>
+    <string name="Start">Start</string>
+    <string name="Controleren">Verify</string>
+    <string name="Tijd">Time</string>
+    <string name="Pinguins">Pinguins</string>
+    <string name="Ja">Yes</string>
+    <string name="Nee">No</string>
+    <string name="Instellingen">Settings</string>
+    <string name="spelUitlegTitel">Game manual</string>
+    <string name="Opslaan">Save</string>
+    <string name="Seconden">sec.</string>
+    <string name="Dobbelstenen">Dices</string>
+    <string name="Accept">Accept</string>
+    <string name="Annuleren">Cancel</string>
+    <string name="Naam">Enter your name</string>
+    <string name="Welkom">Welcome</string>
+    <string name="naamError">No name has been entered.</string>
+    <string name="invoerError">First fill in your details!</string>
+    <string name="tijdError">Youre out of time!</string>
+    <string name="spelUitleg">- An ice hole is the central hole of a dice.\n \n
+
+- Polar bears are the eyes around a hole. Polar only sit at ice holes! If there is no ice hole there is no polar bear. \n\n
+
+- The penguins are the eyes on the back of the dice. The front and back of the dice are always seven together.</string>
+</resources>

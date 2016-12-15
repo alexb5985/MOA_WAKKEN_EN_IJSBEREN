@@ -10,6 +10,7 @@
     <string name="Ja">Ja</string>
     <string name="Nee">Nee</string>
     <string name="Instellingen">Instellingen</string>
+    <string name="spelUitlegTitel">Spel uitleg</string>
     <string name="Opslaan">Opslaan</string>
     <string name="Seconden">sec.</string>
     <string name="Dobbelstenen">Dobbelstenen</string>
@@ -20,4 +21,10 @@
     <string name="naamError">Er is geen naam ingevuld</string>
     <string name="invoerError">Vul eerst gegevens in!</string>
     <string name="tijdError">Uw tijd is om!</string>
+    <string name="spelUitleg">- Een wak is het middelste oog van een dobbelsteen.\n \n
+
+- De ijsberen zijn de ogen om een wak heen. Alleen om een wak zitten ijsberen!
+Zit er GEEN wak op de dobbelsteen, dan is er ook geen ijsbeer. \n\n
+
+- De pinguins zijn de ogen aan de achterkant van de dobbelsteen. De voorkant en de achterkant van de dobbelsteen zijn altijd samen 7 ogen.</string>
 </resources>

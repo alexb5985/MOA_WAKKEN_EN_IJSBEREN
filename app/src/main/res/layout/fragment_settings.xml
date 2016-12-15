@@ -110,10 +110,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView12"
-        android:layout_above="@+id/rgYesNo"
         android:layout_toLeftOf="@+id/btnSaveSettings"
         android:layout_toStartOf="@+id/btnSaveSettings"
-        android:layout_alignTop="@+id/skbDices" />
+        android:layout_alignTop="@+id/skbDices"
+        android:layout_marginRight="10dp" />
 
     <TextView
         android:text="@string/Tijd"
@@ -125,7 +125,8 @@
         android:layout_marginTop="105dp"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/textView12"
-        android:layout_alignStart="@+id/textView12" />
+        android:layout_alignStart="@+id/textView12"
+        android:layout_marginRight="10dp" />
 
     <TextView
         android:text="@string/Pinguins"
@@ -137,6 +138,7 @@
         android:layout_alignTop="@+id/rgYesNo"
         android:layout_alignLeft="@+id/textView12"
         android:layout_alignStart="@+id/textView12"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="5dp" />
 
     <TextView
