@@ -112,8 +112,8 @@ public class FragmentSettings extends Fragment {
 
         //Haalt sharedpreffs op
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        skbDices.setProgress(preferences.getInt("Dice", 2) -1);
-        skbTime.setProgress(preferences.getInt("Seconds", 0) - 10);
+        skbDices.setProgress(preferences.getInt("Dice", 2) -1); //-1 want begint bij 0
+        skbTime.setProgress(preferences.getInt("Seconds", 0) - 10); // -10 want 0 op seekbar  = 10 seconden
         rbYes.setChecked(preferences.getBoolean("Penguins", true));
         rbNo.setChecked(!preferences.getBoolean("Penguins", false));
         tvTime.setText(String.format("%1s %2s", seconds, getString(R.string.Seconden)));

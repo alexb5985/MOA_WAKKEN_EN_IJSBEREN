@@ -25,7 +25,7 @@ public class FragmentGame extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    int seconds = 10, dices = 2, secondsTemp;
+    int seconds, dices, secondsTemp;
     Boolean boolPenguins = true;
     Dobbelstenen dice;
     TextView tvTimer, tvPinguins, tvHoleRes, tvPolarRes, tvPenguinRes;
