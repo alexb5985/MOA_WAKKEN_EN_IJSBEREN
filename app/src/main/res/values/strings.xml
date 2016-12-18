@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">MOA_WAKKEN_EN_IJSBEREN</string>
-    <string name="AantalWakken">Aantal wakken</string>
-    <string name="AantalIjsberen">Aantal ijsberen</string>
-    <string name="AantalPinguins">Aantal pinguins</string>
+    <string name="AantalWakken">Wakken</string>
+    <string name="AantalIjsberen">Ijsberen</string>
+    <string name="AantalPinguins">Pinguins</string>
     <string name="Start">Start</string>
     <string name="Controleren">Controleren</string>
     <string name="Tijd">Begin tijd</string>
@@ -17,6 +17,11 @@
     <string name="Accept">Accepteren</string>
     <string name="Annuleren">Annuleren</string>
     <string name="Naam">Voer uw naam in</string>
+    <string name= "nameList">Naam: </string>
+    <string name= "goodList">Goed: </string>
+    <string name= "wrongList">Fout: </string>
+    <string name= "timeList">Tijd: </string>
+    <string name= "diceList">Dobbelstenen: </string>
     <string name="Welkom">Welkom</string>
     <string name="naamError">Er is geen naam ingevuld</string>
     <string name="invoerError">Vul eerst gegevens in!</string>

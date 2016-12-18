@@ -14,10 +14,15 @@
     <string name="spelUitlegTitel">Game manual</string>
     <string name="Opslaan">Save</string>
     <string name="Seconden">sec.</string>
-    <string name="Dobbelstenen">Dices</string>
+    <string name="Dobbelstenen">Dices </string>
     <string name="Accept">Accept</string>
     <string name="Annuleren">Cancel</string>
     <string name="Naam">Enter your name</string>
+    <string name= "nameList">Name: </string>
+    <string name= "goodList">Good: </string>
+    <string name= "wrongList">Wrong: </string>
+    <string name= "timeList">Time: </string>
+    <string name= "diceList">Dices: </string>
     <string name="Welkom">Welcome</string>
     <string name="naamError">No name has been entered.</string>
     <string name="invoerError">First fill in your details!</string>
