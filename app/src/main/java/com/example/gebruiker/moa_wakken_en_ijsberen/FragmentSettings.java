@@ -114,8 +114,10 @@ public class FragmentSettings extends Fragment {
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         skbDices.setProgress(preferences.getInt("Dice", 3) -1); //-1 want begint bij 0
         skbTime.setProgress(preferences.getInt("Seconds", 0) - 10); // -10 want 0 op seekbar  = 10 seconden
-        rbYes.setChecked(preferences.getBoolean("Penguins", true));
-        rbNo.setChecked(!preferences.getBoolean("Penguins", false));
+        if(preferences.getBoolean("Penguins", true))
+            rbYes.setChecked(true);
+        else
+            rbNo.setChecked(true);
         tvTime.setText(String.format("%1s %2s", seconds, getString(R.string.Seconden)));
         tvDices.setText(String.valueOf(dices));
 
